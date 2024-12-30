@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { LevelContext } from '@app/context/LevelContext';
+import { LevelContext } from '@app/context';
 import { IMapLevels } from '@shared/types/level';
 import { loadLevels } from '@shared/utils/loadLevels';
 import { levelMapper } from '@shared/helpers/levelMapper';
@@ -10,8 +10,7 @@ interface ILevelProvider {
 }
 
 export const LevelProvider = ({ children }: ILevelProvider) => {
-    const [levels, setLevels] = useState<IMapLevels>({})
-    const [currentLevel, setCurrentLevel] = useState("1")
+    const [levels, setLevels] = useState<IMapLevels>({});
 
     useEffect(() => {
         loadLevels().then((data) => {
@@ -20,12 +19,8 @@ export const LevelProvider = ({ children }: ILevelProvider) => {
     }, [])
 
     const providerValue = useMemo(() => {
-        return {
-            levels,
-            currentLevel,
-            onChangeLevel: (nextLevel: string) => setCurrentLevel(nextLevel) 
-        }
-    }, [levels, currentLevel])
+        return {levels}
+    }, [levels])
 
     return (
         <LevelContext.Provider value={providerValue}>
