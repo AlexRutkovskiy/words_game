@@ -1,9 +1,9 @@
-function App() {  
+import { LevelProvider } from '@app/providers/LevelProvider';
+
+export const App = () => {
   return (
-    <>
-      Init
-    </>
+    <LevelProvider>
+      <></>
+    </LevelProvider>
   )
 }
-
-export default App
