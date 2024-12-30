@@ -1,9 +1,14 @@
-function App() {  
+import { LevelProvider, ManageProvider } from '@app/providers';
+import { Container } from '@components/container';
+
+export const App = () => {
   return (
-    <>
-      Init
-    </>
+    <LevelProvider>
+      <ManageProvider>
+        <Container>
+          <></>
+        </Container>
+      </ManageProvider>
+    </LevelProvider>
   )
 }
-
-export default App
