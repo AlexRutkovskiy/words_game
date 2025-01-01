@@ -1,6 +1,8 @@
 import React from 'react';
 import './errorPage.scss';
 
+import { DICTIONARY } from '@shared/consts/dictionary'
+
 interface Props {
     children: React.ReactNode;
 }
@@ -30,7 +32,7 @@ export class ErrorPage extends React.Component<Props, State> {
             return (
                 <div className={mainClass}>
                     <h1 className={`${mainClass}__title`}>
-                        Something went wrong.
+                        {DICTIONARY.PAGES.ERROR_PAGE.TITLE}
                     </h1>
                 </div>
             )
