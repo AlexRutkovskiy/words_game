@@ -1,5 +1,5 @@
 import React from 'react';
-import './errorPage.scss';
+import './errorBoundary.scss';
 
 import { DICTIONARY } from '@shared/consts/dictionary'
 
@@ -13,7 +13,7 @@ interface State {
 
 const mainClass = 'error-page';
 
-export class ErrorPage extends React.Component<Props, State> {
+export class ErrorBoundary extends React.Component<Props, State> {
 
     constructor(props: Props) {
         super(props);

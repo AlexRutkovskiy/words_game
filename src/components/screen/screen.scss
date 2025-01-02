@@ -1,0 +1,18 @@
+$name: "screen";
+
+.#{$name} {
+    gap: 30px;
+    
+    &,
+    &__finish {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    &__finish {
+        gap: 60px;
+    }
+}

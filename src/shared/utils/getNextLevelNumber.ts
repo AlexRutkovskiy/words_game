@@ -7,7 +7,7 @@ export const getNextLevelNumber = (current: string, levels: IMapLevels) => {
     }
 
     if (current === LEVEL_POINTS.FINISH) {
-        return '';
+        return LEVEL_POINTS.FINISH;
     }
 
     const numLevel = parseInt(current);
@@ -20,5 +20,5 @@ export const getNextLevelNumber = (current: string, levels: IMapLevels) => {
         return nextLevel;
     }
 
-    return '';
+    return LEVEL_POINTS.ERROR;
 }
