@@ -1,8 +1,7 @@
 import { LevelProvider, ManageProvider, StorageProvider } from '@app/providers';
 
 import { ErrorBoundary } from '@widget/error';
-
-import { GameScreen } from '@widget/game';
+import { GameScreen } from '@widget/gameScreen';
 import { BrowserDetect } from '@widget/browserDetect';
 
 import { Container } from '@components/container';
