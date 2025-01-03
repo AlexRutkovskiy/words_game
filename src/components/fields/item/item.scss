@@ -1,0 +1,32 @@
+$name: "item";
+
+.#{$name} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    aspect-ratio: 1;
+    background-color: $bg-secondary;
+    color: $color-secondary;
+    border-radius: 8px;
+    box-shadow: $field-shadow;
+
+    &_letter {
+        font-size: 40px;
+        line-height: 1;
+    }
+
+    &--small {
+        width: 30px;
+
+        & > .#{$name}_letter {
+            font-size: 20px;
+        }
+    }
+
+    &--open {
+        background: $bg-third;
+        color: $color-primary;
+        box-shadow: $field-shadow-open;
+    }
+}
