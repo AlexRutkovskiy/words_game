@@ -5,7 +5,7 @@ export async function loadLevels(): Promise<ILevels> {
 
     try {
         const data = import.meta.glob('@shared/assets/dictionary/*.json');
-        let index = 0;
+        let index = 1;
 
         for (const p in data) {
             const value = await data[p]();

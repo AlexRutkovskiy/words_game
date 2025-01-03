@@ -24,7 +24,7 @@ export const LevelProvider = ({ children }: ILevelProvider) => {
 
     return (
         <LevelContext.Provider value={providerValue}>
-            {children}
+            {Object.keys(levels).length >0 && children}
         </LevelContext.Provider>
     );
 }
