@@ -6,13 +6,18 @@ import { LEVEL_POINTS } from '@shared/consts/level';
 import { useLevels } from "@shared/hooks/useLevels";
 import { useManage } from '@shared/hooks/useManage';
 
-import "./game.scss";
+import "./game-screen.scss";
+import { ReactNode } from "react";
+
+interface IGameScreenProps {
+    children: ReactNode
+}
 
 const mainClass = 'game';
 const screens = [LEVEL_POINTS.START, LEVEL_POINTS.FINISH];
 
-export const Game = () => {
-    const { currentLevel, finished, startLevel } = useManage();
+export const GameScreen = ({ children }: IGameScreenProps) => {
+    const { data: { currentLevel, finished }, startLevel } = useManage();
     const { levels } = useLevels();
     
     if (screens.includes(currentLevel) || finished) {
@@ -30,6 +35,7 @@ export const Game = () => {
             <Title tag="h3" position="center">
                 {`${DICTIONARY.PAGES.LEVEL.TITLE} ${currentLevel}`}
             </Title>
+            { children }
         </div>
     )
 }

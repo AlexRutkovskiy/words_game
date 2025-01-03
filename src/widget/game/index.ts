@@ -1,3 +1,3 @@
-import { Game } from './Game';
+import { GameScreen } from './GameScreen';
 
-export { Game }
+export { GameScreen }
