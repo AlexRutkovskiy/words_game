@@ -16,16 +16,29 @@ interface IScreenProps {
     startLevel: (nextLevel: string) => void;
 }
 
+interface ITypography {
+    title: string;
+    description: string;
+    buttonLabel: string;
+}
+
 const mainClass = "screen";
 
 export const Screen = ({currentLevel, startLevel, levels}: IScreenProps) => {
 
-    const buttonLabel = useMemo(() => {
-        if (currentLevel === LEVEL_POINTS.START) {
-            return DICTIONARY.PAGES.SCREENS.START.BUTTON;
-        }
+    const typography: ITypography = useMemo(() => {
+        const res = {
+            buttonLabel: "",
+            description: "",
+            title: ""
+        } as ITypography;
 
-        return DICTIONARY.PAGES.SCREENS.CURRENT.BUTTON;
+        const props = (currentLevel === LEVEL_POINTS.START) ? "START" : "CURRENT";
+        res.buttonLabel = DICTIONARY.PAGES.SCREENS[props].BUTTON;
+        res.description = DICTIONARY.PAGES.SCREENS[props].DESCRIPTION;
+        res.title = DICTIONARY.PAGES.SCREENS[props].TITLE;
+
+        return res;
     }, [currentLevel])
     
     const handleButtonClick = useCallback(() => {
@@ -52,15 +65,21 @@ export const Screen = ({currentLevel, startLevel, levels}: IScreenProps) => {
 
     return (
         <div className={mainClass}>
-            <Title tag="h1" upper position="center">
-                {DICTIONARY.PAGES.SCREENS.START.TITLE}
-            </Title>
-            <Content invert>
-                {DICTIONARY.PAGES.SCREENS.START.DESCRIPTION}
-            </Content>
-            <Button onClick={handleButtonClick}>
-                {buttonLabel}
-            </Button>
+            {typography.title && (
+                <Title tag="h1" upper position="center">
+                    {typography.title}
+                </Title>
+            )}
+            {typography.description && (
+                <Content invert>
+                    {typography.description}
+                </Content>
+            )}
+            {typography.buttonLabel && (
+                <Button onClick={handleButtonClick}>
+                    {typography.buttonLabel}
+                </Button>
+            )}
         </div>
     )
 }

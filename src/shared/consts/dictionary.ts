@@ -14,6 +14,8 @@ export const DICTIONARY = {
                 BUTTON: "Start game"
             },
             CURRENT: {
+                TITLE: "You finished level",
+                DESCRIPTION: "",
                 BUTTON: "Next level"
             },
             FINISH: {
