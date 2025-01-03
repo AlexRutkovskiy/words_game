@@ -13,7 +13,7 @@ interface IGameScreenProps {
     children: ReactNode
 }
 
-const mainClass = 'game';
+const mainClass = 'game-screen';
 const screens = [LEVEL_POINTS.START, LEVEL_POINTS.FINISH];
 
 export const GameScreen = ({ children }: IGameScreenProps) => {

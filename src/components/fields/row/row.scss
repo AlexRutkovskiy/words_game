@@ -1,0 +1,12 @@
+$name: "row";
+
+.#{$name} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    &:not(:last-of-type) {
+        margin-bottom: 20px;
+    }
+}
