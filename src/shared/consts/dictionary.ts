@@ -22,6 +22,9 @@ export const DICTIONARY = {
                 TITLE: "Finish",
                 DESCRIPTION: "Congratulations on successfully completing the game."
             }
+        },
+        LEVEL: {
+            TITLE: "Level:"
         }
     }
 }
