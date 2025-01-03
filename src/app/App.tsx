@@ -1,8 +1,8 @@
-import { LevelProvider, ManageProvider } from '@app/providers';
+import { LevelProvider, ManageProvider, StorageProvider } from '@app/providers';
 
-import { ErrorPage } from '@pages/error';
+import { ErrorBoundary } from '@widget/error';
 
-import { Game } from '@widget/game';
+import { GameScreen } from '@widget/game';
 import { BrowserDetect } from '@widget/browserDetect';
 
 import { Container } from '@components/container';
@@ -10,16 +10,20 @@ import { NotSuportedMode } from '@components/notSupportedMode';
 
 export const App = () => {
   return (
-    <ErrorPage>
+    <ErrorBoundary>
       <LevelProvider>
-        <ManageProvider>
-          <BrowserDetect fallback={<NotSuportedMode />}>
-            <Container>
-              <Game />
-            </Container>
-          </BrowserDetect>
-        </ManageProvider>
+        <StorageProvider>
+          <ManageProvider>
+            <BrowserDetect fallback={<NotSuportedMode />}>
+              <Container>
+                <GameScreen>
+                  <>Game</>
+                </GameScreen>
+              </Container>
+            </BrowserDetect>
+          </ManageProvider>
+        </StorageProvider>
       </LevelProvider>
-    </ErrorPage>
+    </ErrorBoundary>
   )
 }

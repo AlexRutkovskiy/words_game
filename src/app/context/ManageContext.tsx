@@ -1,17 +1,10 @@
 import { createContext } from 'react';
 
 import { IManageProvider } from '@shared/types/manageProvider';
-import { LEVEL_POINTS } from '@shared/consts/level';
+import { getDefaultStorage } from '@shared/utils/getDefaultStorage';
 
 export const ManageContext = createContext<IManageProvider>({
-    currentLevel: LEVEL_POINTS.START,
-    finished: false,
+    data: getDefaultStorage(),
     startLevel: () => {},
-    guessedWords: [],
     addGuessedWord: (word: string) => {console.log(word)},
-    updateFromStorage: (level: string, finished: boolean, guessedWords: string[]) => {
-        console.log(level);
-        console.log(finished);
-        console.log(guessedWords);
-    }
 })
